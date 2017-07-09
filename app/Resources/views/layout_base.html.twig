@@ -1,39 +1,41 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="{{ site_locale }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+    <title>{% block title %} - {{ site_name }}{% endblock %}</title>
 
     {# Google fonts, change vendors.scss if you change this #}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300;400|Lato:300:400"/>
     {# global stylesheet #}
     <link rel="stylesheet" href="{{ asset('build/vendor.css') }}"/>
     <link rel="stylesheet" href="{{ asset('build/main.css') }}"/>
-
+    {% block stylesheet %}{% endblock %}
 </head>
 <body>
 <div class="site-banner">
     <div class="opacity">
         <div class="title">
             <h1>
-                SilentKernel
+                {{ site_name }}
             </h1>
             <h3>
-                To G33k or not to G33k
+                {{ site_slogan }}
             </h3>
         </div>
     </div>
 </div>
 
 <div class="container-fluid">
-    <h1>Hello, world!</h1>
-
+ {% block content %}
+ {% endblock %}
 </div>
 
 
 {# script included in every page #}
 <script src="{{ asset('build/manifest.js') }}"></script>
 <script src="{{ asset('build/vendor.js') }}"></script>
+{% block javascript %}
+{% endblock %}
 </body>

@@ -1,3 +1,7 @@
 twig:
     debug: '%kernel.debug%'
     strict_variables: '%kernel.debug%'
+    globals:
+        site_locale: "%locale%"
+        site_name: "%site_name%"
+        site_slogan: "%site_slogan%"

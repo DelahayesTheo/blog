@@ -18,5 +18,10 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
 
-     # locale
-     locale: fr
+    # Site information
+    site_name: MySuperWebsite
+    site_slogan: My super slogan
+
+    # Lang of the website
+    locale: fr
+
