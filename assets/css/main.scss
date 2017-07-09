@@ -1,0 +1,30 @@
+// -- Variables
+// Banner
+$site-banner-url: '/img/banner.jpg';
+$site-banner-opacity-strength: 0.6;
+$site-banner-opacity-color: black;
+
+// -- Real class
+.site-banner {
+  background-image: url($site-banner-url);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  width: 100%;
+  height: 30vh;
+  display: table;
+}
+
+.site-banner .opacity {
+  background-color: $site-banner-opacity-color;
+  opacity: $site-banner-opacity-strength;
+  width: 100%;
+  height: 100%;
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.site-banner .title {
+  text-align: center;
+  color: white;
+}
