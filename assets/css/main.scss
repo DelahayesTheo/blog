@@ -1,30 +1,16 @@
 // -- Variables
 // Banner
-$site-banner-url: '/img/banner.jpg';
+$site-banner-image-url: '/img/banner.jpg';
+$site-banner-height: 30vh;
 $site-banner-opacity-strength: 0.6;
 $site-banner-opacity-color: black;
+$title-banner-text-vertical-align: middle;
+$title-banner-text-horizontal-align: center;
+$title-banner-text-color: white;
 
-// -- Real class
-.site-banner {
-  background-image: url($site-banner-url);
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
-  width: 100%;
-  height: 30vh;
-  display: table;
-}
+// Container
+$container-background-color: white;
 
-.site-banner .opacity {
-  background-color: $site-banner-opacity-color;
-  opacity: $site-banner-opacity-strength;
-  width: 100%;
-  height: 100%;
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.site-banner .title {
-  text-align: center;
-  color: white;
-}
+// -- Load scss
+@import 'component/banner.scss';
+@import 'component/container.scss';

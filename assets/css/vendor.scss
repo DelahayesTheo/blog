@@ -1,7 +1,10 @@
 // --- Bootstrap ---
 // Variables
+// Fonts
 $font-family-sans-serif:  "Roboto" ,"Helvetica Neue", Helvetica, Arial, sans-serif !default;
 $font-family-monospace:   Lato, Menlo, Monaco, Consolas, "Courier New", monospace !default;
+// Background color
+$body-bg:               #F8F8F8 !default;
 
 // Load bootstrap
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
