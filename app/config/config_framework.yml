@@ -18,7 +18,7 @@ framework:
         handler_id: session.handler.native_file
         save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
         cookie_secure: true # Session only work with https, change it if it's not your case
-        cookie_httponly: true # Already true by default but i like to set it 
+        cookie_httponly: true # Already true by default but i like to set it
     fragments: ~
     http_method_override: true
     assets:

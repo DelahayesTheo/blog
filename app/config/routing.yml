@@ -5,3 +5,9 @@ app:
 # At this time only admin account is required, so we only import login route
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+
+# TODO: change to our own controller
+easy_admin_bundle:
+    resource: "@EasyAdminBundle/Controller/"
+    type:     annotation
+    prefix:   /admin

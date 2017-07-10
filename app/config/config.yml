@@ -1,5 +1,6 @@
 imports:
     - { resource: config_doctrine.yml }
+    - { resource: config_easy_admin.yml }
     - { resource: config_fos_user.yml}
     - { resource: config_framework.yml }
     - { resource: config_parameters.yml }
