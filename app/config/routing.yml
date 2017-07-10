@@ -1,3 +1,7 @@
 app:
     resource: '@AppBundle/Controller/'
     type: annotation
+
+# At this time only admin account is required, so we only import login route
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"

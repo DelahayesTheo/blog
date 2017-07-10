@@ -1,11 +1,15 @@
-# To get started with security, check out the documentation:
-# https://symfony.com/doc/current/security.html
 security:
+    encoders:
+        FOS\UserBundle\Model\UserInterface: bcrypt
 
-    # https://symfony.com/doc/current/security.html#b-configuring-how-users-are-loaded
+    role_hierarchy:
+       # TODO : Role for ppl who write article ?
+       ROLE_ADMIN:       ROLE_USER
+       ROLE_SUPER_ADMIN: ROLE_ADMIN
+
     providers:
-        in_memory:
-            memory: ~
+        fos_userbundle:
+            id: fos_user.user_provider.username
 
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
@@ -13,12 +17,26 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
+        # At this time we only need basic authentication
+        # Later we will use guard to create an api authentication (for mobile app)
         main:
             anonymous: ~
-            # activate different ways to authenticate
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_token_generator: security.csrf.token_manager
 
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-            #http_basic: ~
+            logout:       true
+            anonymous:    true
+            remember_me:
+                secret:   '%secret%'
+                lifetime: 604800
+                path: /
+                secure: true # https only, change that if your website is not TLS protected
+                httponly: true # Prevent accessibility of the cookie by javascript
 
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            #form_login: ~
+    access_control:
+        - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/admin/, role: ROLE_ADMIN }
+        # - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
+        # - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }

@@ -1,6 +1,6 @@
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -17,6 +17,8 @@ framework:
         # https://symfony.com/doc/current/reference/configuration/framework.html#handler-id
         handler_id: session.handler.native_file
         save_path: '%kernel.project_dir%/var/sessions/%kernel.environment%'
+        cookie_secure: true # Session only work with https, change it if it's not your case
+        cookie_httponly: true # Already true by default but i like to set it 
     fragments: ~
     http_method_override: true
     assets:
