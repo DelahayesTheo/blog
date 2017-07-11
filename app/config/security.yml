@@ -4,8 +4,7 @@ security:
 
     role_hierarchy:
        # TODO : Role for ppl who write article ?
-       ROLE_ADMIN:       ROLE_USER
-       ROLE_SUPER_ADMIN: ROLE_ADMIN
+       ROLE_SUPER_ADMIN: ROLE_USER
 
     providers:
         fos_userbundle:
@@ -36,7 +35,5 @@ security:
                 httponly: true # Prevent accessibility of the cookie by javascript
 
     access_control:
+        - { path: ^/admin/, role: ROLE_SUPER_ADMIN }
         - { path: ^/, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        - { path: ^/admin/, role: ROLE_ADMIN }
-        # - { path: ^/register, role: IS_AUTHENTICATED_ANONYMOUSLY }
-        # - { path: ^/resetting, role: IS_AUTHENTICATED_ANONYMOUSLY }

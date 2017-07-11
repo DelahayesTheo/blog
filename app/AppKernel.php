@@ -15,10 +15,12 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            // Back end administration
-            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             // Database User Management Bundle
             new FOS\UserBundle\FOSUserBundle(),
+            // Doctrine extensions
+            new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            // Administration
+            new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
             new AppBundle\AppBundle(),
         ];
 
@@ -46,9 +48,8 @@ class AppKernel extends Kernel
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
             // put cache in memory for dev
             return '/dev/shm/skblog/devcache/';
-        } else {
-            return dirname(__DIR__) . '/var/cache/' . $this->getEnvironment();
         }
+        return dirname(__DIR__) . '/var/cache/' . $this->getEnvironment();
     }
 
     public function getLogDir()
