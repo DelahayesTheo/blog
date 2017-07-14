@@ -11,9 +11,17 @@ $title-banner-text-color: white;
 $title-banner-horizontal-align: center;
 $title-banner-vertical-align: center;
 
-
-// Container
+// Container and body
+$body-background-color: #DFE3E5;
 $container-background-color: white;
+$container--width: (
+        'default': (
+                '@sm': 540px,
+                '@md': 720px,
+                '@xl': 90%,
+        ),
+        '-fluid': 100%,
+);
 
 // -- Load scss
 // -- Normalize.css
@@ -27,6 +35,7 @@ $container-background-color: white;
 @import '~font-awesome/scss/font-awesome.scss';
 
 // -- Our scss
+@import 'component/body-container.scss';
 @import 'component/font.scss';
 @import 'component/banner.scss';
 
