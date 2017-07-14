@@ -23,6 +23,9 @@ $container-background-color: white;
 @import '~trowel-core/src/trowel';
 @import '~trowel-layouts/src/scss/layouts';
 
+// -- Font Awesome
+@import '~font-awesome/scss/font-awesome.scss';
+
 // -- Our scss
 @import 'component/font.scss';
 @import 'component/banner.scss';
