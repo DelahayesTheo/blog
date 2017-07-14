@@ -5,19 +5,12 @@
   background-position: center;
   width: 100%;
   height: $site-banner-height;
-  display: table;
+  display: flex;
+  justify-content: $title-banner-horizontal-align;
+  align-items: $title-banner-vertical-align;
 }
 
-.site-banner .opacity {
-  background-color: $site-banner-opacity-color;
-  opacity: $site-banner-opacity-strength;
-  width: 100%;
-  height: 100%;
-  display: table-cell;
-  vertical-align: $title-banner-text-vertical-align;
-}
-
-.site-banner .title {
-  text-align: $title-banner-text-horizontal-align;
+.site-banner .banner-title {
   color: $title-banner-text-color;
+  text-align: $title-banner-horizontal-align;
 }

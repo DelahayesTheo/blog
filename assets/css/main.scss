@@ -1,16 +1,30 @@
 // -- Variables
+// Fonts
+$site-html-font: sans-serif;
+$site-default-font: "Roboto", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$site-default-font-size: 14px;
+
 // Banner
 $site-banner-image-url: '/img/banner.jpg';
-$site-banner-height: 30vh;
-$site-banner-opacity-strength: 0.6;
-$site-banner-opacity-color: black;
-$title-banner-text-vertical-align: middle;
-$title-banner-text-horizontal-align: center;
+$site-banner-height: 20vh;
 $title-banner-text-color: white;
+$title-banner-horizontal-align: center;
+$title-banner-vertical-align: center;
+
 
 // Container
 $container-background-color: white;
 
 // -- Load scss
+// -- Normalize.css
+@import '~normalize.css/normalize.css';
+
+// -- Trowel
+@import '~trowel-core/src/trowel';
+@import '~trowel-layouts/src/scss/layouts';
+
+// -- Our scss
+@import 'component/font.scss';
 @import 'component/banner.scss';
-@import 'component/container.scss';
+
+

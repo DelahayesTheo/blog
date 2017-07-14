@@ -1,0 +1,12 @@
+html {
+  font-family: $site-html-font;
+}
+
+body {
+  font-family: $site-default-font;
+  font-size: $site-default-font-size;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 300;
+}
