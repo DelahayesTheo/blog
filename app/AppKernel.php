@@ -19,8 +19,11 @@ class AppKernel extends Kernel
             new FOS\UserBundle\FOSUserBundle(),
             // Doctrine extensions
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
+            // Pagination
+            new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
             // Administration
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
+            // Application bundle
             new AppBundle\AppBundle(),
         ];
 
