@@ -89,6 +89,11 @@ class Post
     private $postType;
 
     /**
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\PostCategory", mappedBy="posts")
+     */
+    private $categories;
+
+    /**
      * @return mixed
      */
     public function getPostType()
@@ -270,5 +275,46 @@ class Post
     public function getUpdatedAt()
     {
         return $this->updatedAt;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->categories = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add category
+     *
+     * @param \AppBundle\Entity\PostCategory $category
+     *
+     * @return Post
+     */
+    public function addCategory(\AppBundle\Entity\PostCategory $category)
+    {
+        $this->categories[] = $category;
+
+        return $this;
+    }
+
+    /**
+     * Remove category
+     *
+     * @param \AppBundle\Entity\PostCategory $category
+     */
+    public function removeCategory(\AppBundle\Entity\PostCategory $category)
+    {
+        $this->categories->removeElement($category);
+    }
+
+    /**
+     * Get categories
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCategories()
+    {
+        return $this->categories;
     }
 }
