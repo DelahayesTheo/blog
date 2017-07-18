@@ -15,17 +15,11 @@ class AppKernel extends Kernel
             new Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle(),
             new Doctrine\Bundle\DoctrineBundle\DoctrineBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
-            // Database User Management Bundle
             new FOS\UserBundle\FOSUserBundle(),
-            // Upload image ? yeah
             new Vich\UploaderBundle\VichUploaderBundle(),
-            // Doctrine extensions
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
-            // Pagination
             new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
-            // Administration
             new JavierEguiluz\Bundle\EasyAdminBundle\EasyAdminBundle(),
-            // Application bundle
             new AppBundle\AppBundle(),
         ];
 
@@ -51,7 +45,6 @@ class AppKernel extends Kernel
     public function getCacheDir()
     {
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {
-            // put cache in memory for dev
             return '/dev/shm/skblog/devcache/';
         }
         return dirname(__DIR__) . '/var/cache/' . $this->getEnvironment();

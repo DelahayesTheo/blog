@@ -28,7 +28,6 @@ class DataCreationCommand extends ContainerAwareCommand
         $postTypeRepo = $em->getRepository("AppBundle:PostType");
         $insertedPostTypeCount = 0;
 
-        // Check if we already has article type ?
         if ($postTypeRepo->findOneByIdentifier("ARTICLE") === null) {
             $postType = new PostType();
             $postType->setName("Article");
@@ -37,7 +36,6 @@ class DataCreationCommand extends ContainerAwareCommand
             $insertedPostTypeCount++;
         }
 
-        // Check if we already has page type ?
         if ($postTypeRepo->findOneByIdentifier("PAGE") === null) {
             $postType = new PostType();
             $postType->setName("Page");
