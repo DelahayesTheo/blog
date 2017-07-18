@@ -9,11 +9,11 @@ use Symfony\Component\HttpFoundation\Request;
 class ListController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/", name="home")
      */
     public function indexAction(Request $request)
     {
-        return $this->render("::layout_base.html.twig");
+        return $this->render(":List:home.html.twig");
 
     }
 }
