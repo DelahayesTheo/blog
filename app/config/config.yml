@@ -9,5 +9,6 @@ imports:
     - { resource: config_swiftmailer.yml }
     - { resource: config_twig.yml }
     - { resource: parameters.yml }
+    - { resource: config_vich_uploader.yml }
     - { resource: security.yml }
     - { resource: services.yml }

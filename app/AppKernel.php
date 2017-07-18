@@ -17,6 +17,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             // Database User Management Bundle
             new FOS\UserBundle\FOSUserBundle(),
+            // Upload image ? yeah
+            new Vich\UploaderBundle\VichUploaderBundle(),
             // Doctrine extensions
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             // Pagination
