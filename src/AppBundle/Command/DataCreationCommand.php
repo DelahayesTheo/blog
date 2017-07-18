@@ -37,7 +37,7 @@ class DataCreationCommand extends ContainerAwareCommand
             $insertedPostTypeCount++;
         }
 
-        // Check if we already has post type ?
+        // Check if we already has page type ?
         if ($postTypeRepo->findOneByIdentifier("PAGE") === null) {
             $postType = new PostType();
             $postType->setName("Page");
