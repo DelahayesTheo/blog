@@ -25,3 +25,8 @@ parameters:
     # Lang of the website
     locale: fr
 
+    # if the host uses ssl
+    use_ssl: false 
+
+    # base path of posts images
+    app.path.post_images: 'img/posts'

@@ -1,8 +1,8 @@
 vich_uploader:
     db_driver: orm
     mappings:
-        post_image:
-            uri_prefix:         /img/posts
+        post_images:
+            uri_prefix:         '%app.path.post_images%'
             upload_destination: '%kernel.root_dir%/../web/img/posts'
 
             delete_on_update:   true

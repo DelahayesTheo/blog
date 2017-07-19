@@ -27,3 +27,79 @@ easy_admin:
                     - { property: 'lastlogin', label: 'Dernière connexion', type: 'datetime' }
                     - { property: 'plainPassword', label: 'Mot de passe', type: 'text', type_options: { required: false } }
                     - { property: 'roles', label: 'Role(s)', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN' } } }
+
+        PostCategory:
+            class: AppBundle\Entity\PostCategory
+            label: 'Catégories de post'
+            new:
+                title: 'Ajouter une catégorie'
+            edit:
+                title: 'Modifier la catégorie'
+            delete:
+                title: 'Supprimer la catégorie'
+            list:
+                actions:
+                    - { name: 'new', label: 'Ajouter une catégorie' }
+                title: 'Catégories'
+                fields:
+                    - { property: 'id', label: 'Id' }
+                    - { property: 'name', label: 'Nom' }
+            form:
+                fields:
+                    - { property: 'name', label: 'Nom', type: 'text'}
+
+        PostType:
+            class: AppBundle\Entity\PostType
+            label: 'Type de post'
+            new:
+                title: 'Ajouter un type'
+            edit:
+                title: 'Modifier le type'
+            delete:
+                title: 'Supprimer le type'
+            list:
+                actions:
+                    - { name: 'new', label: 'Ajouter un type' }
+                title: 'Types'
+                fields:
+                    - { property: 'id', label: 'Id' }
+                    - { property: 'name', label: 'Nom' }
+                    - { property: 'identifier', label: 'Identifiant' }
+            form:
+                fields:
+                    - { property: 'name', label: 'Nom', type: 'text'}
+                    - { property: 'identifier', label: 'Identifiant', type: 'text'}
+
+        Post:
+            class: AppBundle\Entity\Post
+            label: 'Posts'
+            new:
+                title: 'Ajouter un post'
+            edit:
+                title: 'Modifier le post'
+            delete:
+                title: 'Supprimer le post'
+            list:
+                actions:
+                    - { name: 'new', label: 'Ajouter un post' }
+                title: 'Posts'
+                fields:
+                    - { property: 'id', label: 'Id' }
+                    - { property: 'title', label: 'Titre' }
+                    - { property: 'seoDescription', label: 'Description' }
+                    - { property: 'content', label: 'Contenu' }
+                    - { property: 'hasGist', label: 'Gist' }
+                    - { property: 'imageName', type: 'image', label: 'Image', namer: 'vich_uploader.namer_uniqid', base_path: '%app.path.post_images%' }
+                    - { property: 'postType', label: 'Type' }
+                    - { property: 'categories', label: 'Categorie(s)'}
+                    - { property: 'createdAt', label: 'Crée le', type: 'datetime' }
+                    - { property: 'updatedAt', label: 'Derniere Modification', type: 'datetime'}
+            form:
+                fields:
+                    - { property: 'title', label: 'Titre' }
+                    - { property: 'seoDescription', label: 'Description' }
+                    - { property: 'content', label: 'Contenu' }
+                    - { property: 'hasGist', label: 'Gist', type: 'checkbox' }
+                    - { property: 'imageFile', label: 'Image', type: 'vich_image' }
+                    - { property: 'categories', label: 'Categorie(s)', type_options: { multiple: true, required: true } }
+                    - { property: 'postType', label: 'Type', type_options: { required: true } }

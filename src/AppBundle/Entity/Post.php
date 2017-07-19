@@ -51,7 +51,7 @@ class Post
     private $seoDescription;
 
     /**
-     * @Vich\UploadableField(mapping="post_image", fileNameProperty="imageName", size="imageSize")
+     * @Vich\UploadableField(mapping="post_images", fileNameProperty="imageName", size="imageSize")
      *
      * @var File
      */
@@ -112,7 +112,8 @@ class Post
     private $postType;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\PostCategory", mappedBy="posts")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\PostCategory", inversedBy="posts")
+     * @ORM\JoinTable(name="category_post")
      */
     private $categories;
 
@@ -413,5 +414,10 @@ class Post
     public function getImageSize()
     {
         return $this->imageSize;
+    }
+
+    public function __toString()
+    {
+        return $this->title;
     }
 }

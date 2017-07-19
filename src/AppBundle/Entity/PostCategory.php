@@ -38,7 +38,7 @@ class PostCategory
     private $slug;
 
     /**
-     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Post", inversedBy="categories")
+     * @ORM\ManyToMany(targetEntity="AppBundle\Entity\Post", mappedBy="categories")
      * @ORM\JoinTable(name="category_post")
      */
     private $posts;
@@ -140,5 +140,10 @@ class PostCategory
     public function getPosts()
     {
         return $this->posts;
+    }
+
+     public function __toString()
+    {
+        return $this->name;
     }
 }
