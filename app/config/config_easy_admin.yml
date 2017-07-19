@@ -1,3 +1,29 @@
 easy_admin:
     entities:
-        - AppBundle\Entity\User
+        User:
+            class: AppBundle\Entity\User
+            label: 'Utilisateurs'
+            disabled_actions: ['delete']
+            new:
+                title: 'Ajouter un utilisateur'
+            edit:
+                 title: "Modifier l'utilisateur"
+            list:
+                actions:
+                      - {name: 'new', label: 'Ajouter un utilisateur'}
+                title: 'Utilisateurs'
+                fields:
+                    - { property: 'id', label: 'Id' }
+                    - { property: 'username', label: 'Pseudo' }
+                    - { property: 'email', label: 'Email', type: 'email' }
+                    - { property: 'enabled', 'label': 'Activé' }
+                    - { property: 'lastlogin', label: 'Dernière connexion', type: 'datetime' }
+                    - { property: 'roles', label: 'Role(s)' }
+            form:
+                fields:
+                    - { property: 'username', label: 'Pseudo' }
+                    - { property: 'email', label: 'Email', type: 'email' }
+                    - { property: 'enabled', 'label': 'Activé', type: 'checkbox' }
+                    - { property: 'lastlogin', label: 'Dernière connexion', type: 'datetime' }
+                    - { property: 'plainPassword', label: 'Mot de passe', type: 'text', type_options: { required: false } }
+                    - { property: 'roles', label: 'Role(s)', type: 'choice', type_options: { multiple: true, choices: { 'ROLE_USER': 'ROLE_USER', 'ROLE_SUPER_ADMIN': 'ROLE_SUPER_ADMIN' } } }
