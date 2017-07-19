@@ -9,6 +9,12 @@ use AppBundle\Entity\PostType;
 
 class DataCreationCommand extends ContainerAwareCommand
 {
+    // Contains type of post, article or page ATM
+    private static $postTypeToImport = array(
+        array("name" => "Article", "identifier" => "ARTICLE"),
+        array("name" => "Page", "identifier" => "PAGE")
+    );
+
     protected function configure()
     {
         $this
@@ -28,20 +34,14 @@ class DataCreationCommand extends ContainerAwareCommand
         $postTypeRepo = $em->getRepository("AppBundle:PostType");
         $insertedPostTypeCount = 0;
 
-        if ($postTypeRepo->findOneByIdentifier("ARTICLE") === null) {
-            $postType = new PostType();
-            $postType->setName("Article");
-            $postType->setIdentifier("ARTICLE");
-            $em->persist($postType);
-            $insertedPostTypeCount++;
-        }
-
-        if ($postTypeRepo->findOneByIdentifier("PAGE") === null) {
-            $postType = new PostType();
-            $postType->setName("Page");
-            $postType->setIdentifier("PAGE");
-            $em->persist($postType);
-            $insertedPostTypeCount++;
+        foreach (self::$postTypeToImport as $onePostTypeToImport){
+            if ($postTypeRepo->findOneByIdentifier($onePostTypeToImport["identifier"]) === null) {
+                $postType = new PostType();
+                $postType->setName($onePostTypeToImport["name"]);
+                $postType->setIdentifier($onePostTypeToImport["identifier"]);
+                $em->persist($postType);
+                $insertedPostTypeCount++;
+            }
         }
 
         if ($insertedPostTypeCount > 0) {
